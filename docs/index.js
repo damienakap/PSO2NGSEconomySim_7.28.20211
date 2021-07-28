@@ -351,14 +351,14 @@ function simulate()
 
   // Sim results
   simResHeader.innerText            = "Results After "+simWeeks+" Weeks";
-  simResSAMeseta.innerText          = "Players With Shop Accesss Hold: "+Math.trunc(simSAMeseta[simWeeks]/10000)/100+"M";
-  simResF2PMeseta.innerText         = "Players Without Shop Accesss Hold: "+Math.trunc(simF2PMeseta[simWeeks]/10000)/100+"M";
+  simResSAMeseta.innerText          = "Held Meseta: "+Math.trunc(simSAMeseta[simWeeks]/10000)/100+"M";
+  simResF2PMeseta.innerText         = "Held Meseta: "+Math.trunc(simF2PMeseta[simWeeks]/10000)/100+"M";
   
   simResSASpentMeseta.innerText     = "Spent Meseta: "+Math.trunc(simSASpent[simWeeks]/10000)/100+"M";
   simResF2PSpentMeseta.innerText     = "Spent Meseta: "+Math.trunc(simF2PSpent[simWeeks]/10000)/100+"M";
   
-  simResSAMesetaPerPlayer.innerText = "Players With Shop Accesss Hold Per Player:"+Math.trunc(simSAMeseta[simWeeks]/saPlayers/10000)/100+"M on average";
-  simResF2PMesetaPerPlayer.innerText= "Players Without Shop Accesss Hold Per Player:"+Math.trunc(simF2PMeseta[simWeeks]/f2pPlayers/10000)/100+"M on average";
+  simResSAMesetaPerPlayer.innerText = "Held Meseta Per Player:"+Math.trunc(simSAMeseta[simWeeks]/saPlayers/10000)/100+"M on average";
+  simResF2PMesetaPerPlayer.innerText= "Held Meseta Per Player:"+Math.trunc(simF2PMeseta[simWeeks]/f2pPlayers/10000)/100+"M on average";
   
   simResSASpentMesetaPerPlayer.innerText     = "Spent Meseta Per Player"+Math.trunc(simSASpent[simWeeks]/saPlayers/10000)/100+"M";
   simResF2PSpentMesetaPerPlayer.innerText     = "Spent Meseta Per Player"+Math.trunc(simF2PSpent[simWeeks]/f2pPlayers/10000)/100+"M";
