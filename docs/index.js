@@ -360,8 +360,8 @@ function simulate()
   simResSAMesetaPerPlayer.innerText = "Held Meseta Per Player:"+Math.trunc(simSAMeseta[simWeeks]/saPlayers/10000)/100+"M on average";
   simResF2PMesetaPerPlayer.innerText= "Held Meseta Per Player:"+Math.trunc(simF2PMeseta[simWeeks]/f2pPlayers/10000)/100+"M on average";
   
-  simResSASpentMesetaPerPlayer.innerText     = "Spent Meseta Per Player"+Math.trunc(simSASpent[simWeeks]/saPlayers/10000)/100+"M";
-  simResF2PSpentMesetaPerPlayer.innerText     = "Spent Meseta Per Player"+Math.trunc(simF2PSpent[simWeeks]/f2pPlayers/10000)/100+"M";
+  simResSASpentMesetaPerPlayer.innerText     = "Spent Meseta Per Player: "+Math.trunc(simSASpent[simWeeks]/saPlayers/10000)/100+"M";
+  simResF2PSpentMesetaPerPlayer.innerText     = "Spent Meseta Per Player: "+Math.trunc(simF2PSpent[simWeeks]/f2pPlayers/10000)/100+"M";
 
   
 }
