@@ -1,0 +1,17 @@
+body {
+  background-color: antiquewhite;
+}
+div.stat-info {
+  align-self: center;
+  width: 90%;
+  margin: 0px auto;
+}
+
+div.input-data {
+  float: left;
+  width: 50%;
+}
+div.calculated-info {
+  float: right;
+  width: 50%;
+}
