@@ -19,9 +19,13 @@ let oPSA,
     oDreadGigaDropWeeklyIncome,
     simResHeader,
     simResSAMeseta,
-    simResF2PMeseta,
+    simResSASpentMeseta,
     simResSAMesetaPerPlayer,
-    simResF2PMesetaPerPlayer;
+    simResSASpentMesetaPerPlayer,
+    simResF2PMeseta,
+    simResF2PSpentMeseta,
+    simResF2PMesetaPerPlayer,
+    simResF2PSpentMesetaPerPlayer;
 
 // sim canvas
 let simCanvas, simCTX;
@@ -49,10 +53,16 @@ function init(){
   oDreadGigaDropWeeklyIncome = document.getElementById("oDreadGigaDropWeeklyIncome");
 
   simResHeader = document.getElementById("simResHeader");
+    
   simResSAMeseta = document.getElementById("simResSAMeseta");
-  simResF2PMeseta = document.getElementById("simResF2PMeseta");
+  simResSASpentMeseta = document.getElementById("simResSASpentMeseta");
   simResSAMesetaPerPlayer = document.getElementById("simResSAMesetaPerPlayer");
+  simResSASpentMesetaPerPlayer = document.getElementById("simResSASpentMesetaPerPlayer");
+    
+  simResF2PMeseta = document.getElementById("simResF2PMeseta");
+  simResF2PSpentMeseta = document.getElementById("simResF2PSpentMeseta");
   simResF2PMesetaPerPlayer = document.getElementById("simResF2PMesetaPerPlayer");
+  simResF2PSpentMesetaPerPlayer = document.getElementById("simResF2PSpentMesetaPerPlayer");
 
   simCanvas = document.getElementById("simCanvas");
   simCanvas.style.width="100%";
@@ -173,6 +183,10 @@ function simulate()
 
   let simF2PMeseta = Array(simWeeks);
   let simSAMeseta = Array(simWeeks);
+  
+  let simF2PSpent = Array(simWeeks);
+  let simSASpent = Array(simWeeks);
+  
 
   simF2PMeseta[0] = 0;
   simSAMeseta[0] = 0;
@@ -191,9 +205,12 @@ function simulate()
 
     let f2pSpentGear = simF2PMeseta[i]*playerSpendingGear;
     let saSpentGear = simSAMeseta[i]*playerSpendingGear;
+      
+    simF2PSpent[i] = f2pSpent+f2pSpentGear;
+    simSASpent[i] = saSpent+saSpentGear;
 
-    simF2PMeseta[i] -= f2pSpent+f2pSpentGear;
-    simSAMeseta[i]  -= saSpent+saSpentGear;
+    simF2PMeseta[i] -= simF2PSpent[i];
+    simSAMeseta[i]  -= simSASpent[i];
     
     simSAMeseta[i]  += (f2pSpent+saSpent)*shopTax;
 
@@ -336,9 +353,15 @@ function simulate()
   simResHeader.innerText            = "Results After "+simWeeks+" Weeks";
   simResSAMeseta.innerText          = "Players With Shop Accesss Hold: "+Math.trunc(simSAMeseta[simWeeks]/10000)/100+"M";
   simResF2PMeseta.innerText         = "Players Without Shop Accesss Hold: "+Math.trunc(simF2PMeseta[simWeeks]/10000)/100+"M";
+  
+  simResSASpentMeseta.innerText     = "Spent Meseta: "+Math.trunc(simSASpent[simWeeks]/10000)/100+"M";
+  simResF2PSpentMeseta.innerText     = "Spent Meseta: "+Math.trunc(simF2PSpent[simWeeks]/10000)/100+"M";
+  
   simResSAMesetaPerPlayer.innerText = "Players With Shop Accesss Hold Per Player:"+Math.trunc(simSAMeseta[simWeeks]/saPlayers/10000)/100+"M on average";
   simResF2PMesetaPerPlayer.innerText= "Players Without Shop Accesss Hold Per Player:"+Math.trunc(simF2PMeseta[simWeeks]/f2pPlayers/10000)/100+"M on average";
-
+  
+  simResSASpentMesetaPerPlayer.innerText     = "Spent Meseta Per Player"+Math.trunc(simSASpent[simWeeks]/saPlayers/10000)/100+"M";
+  simResF2PSpentMesetaPerPlayer.innerText     = "Spent Meseta Per Player"+Math.trunc(simF2PSpent[simWeeks]/f2pPlayers/10000)/100+"M";
 
   
 }
